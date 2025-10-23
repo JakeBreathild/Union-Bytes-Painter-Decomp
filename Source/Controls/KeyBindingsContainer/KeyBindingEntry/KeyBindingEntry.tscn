@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=1]
+[ext_resource path="res://Source/Controls/KeyBindingsContainer/KeyBindingEntry/KeyBindingEntry.cs" type="Script" id=2]
+
+[node name="KeyBindingEntry" type="Panel"]
+anchor_right = 1.0
+rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="NameLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 8.0
+margin_right = -314.0
+margin_bottom = 35.0
+theme = ExtResource( 1 )
+text = "Name"
+
+[node name="KeyButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -306.0
+margin_top = 6.0
+margin_right = -8.0
+margin_bottom = -7.0
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true

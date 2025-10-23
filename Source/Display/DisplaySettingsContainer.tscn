@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Resources/Icons/Fluent_Video_Background_Effect_Regular.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Icons/Fluent_Cube_Regular.png" type="Texture" id=2]
+[ext_resource path="res://Source/Display/DisplaySettingsContainer.cs" type="Script" id=3]
+[ext_resource path="res://Resources/Icons/Fluent_Grid_Regular.png" type="Texture" id=4]
+[ext_resource path="res://Source/Controls/MirroringToolButton/MirroringToolButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Icons/Fluent_Cube_Regular_Disabled.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=7]
+[ext_resource path="res://Resources/Icons/Fluent_Ruler_Regular.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Icons/Fluent_Eye_Tracking_On_Regular.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Icons/Fluent_Video_Background_Effect_Regular_Hover.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Icons/Fluent_Grid_Regular_Hover.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Icons/Fluent_Ruler_Regular_Hover.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Icons/Fluent_Eye_Tracking_On_Regular_Hover.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Icons/Fluent_Cube_Regular_Hover.png" type="Texture" id=14]
+
+[node name="DisplaySettingsContainer" type="HBoxContainer"]
+margin_right = 280.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+mouse_filter = 2
+custom_constants/separation = 8
+script = ExtResource( 3 )
+
+[node name="Mask" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Toggle Channel Alpha"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Grid" type="TextureButton" parent="."]
+margin_left = 48.0
+margin_right = 88.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Toggle Grid"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="Mirroring" parent="." instance=ExtResource( 5 )]
+margin_left = 96.0
+margin_right = 136.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="AlignmentTool" type="TextureButton" parent="."]
+margin_left = 144.0
+margin_right = 184.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Alignment Display"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+
+[node name="Layer" type="TextureButton" parent="."]
+margin_left = 192.0
+margin_right = 232.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Toggle Layer Visualization"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+
+[node name="Wireframe" type="TextureButton" parent="."]
+margin_left = 240.0
+margin_right = 280.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Toggle UV-Layout"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+disabled = true
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 6 )
+expand = true
+stretch_mode = 5

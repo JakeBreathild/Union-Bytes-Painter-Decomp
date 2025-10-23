@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Source/ThumbnailRenderer/ThumbnailScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Source/ThumbnailRenderer/ThumbnailRenderer.cs" type="Script" id=2]
+[ext_resource path="res://Resources/Materials/Shader/Thumbnail.shader" type="Shader" id=3]
+[ext_resource path="res://Source/Environment/ThumbnailEnvironment.tres" type="Environment" id=4]
+
+[sub_resource type="World" id=1]
+environment = ExtResource( 4 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 color = vec4(1.0);
+uniform float roughness = 1.0;
+uniform float metallicity = 0.0;
+uniform vec4 emission = vec4(0.0);
+
+void fragment() {
+	ALBEDO = color.rgb;
+	ALPHA = color.a;
+	
+	ROUGHNESS = roughness;
+	SPECULAR = 1.0f;
+	
+	METALLIC = metallicity;
+	
+	EMISSION = emission.rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+render_priority = 1
+shader = SubResource( 2 )
+shader_param/color = Plane( 0, 1, 1, 1 )
+shader_param/roughness = 0.15
+shader_param/metallicity = 0.0
+shader_param/emission = Plane( 0, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource( 3 )
+shader_param/color = Plane( 1, 1, 1, 1 )
+shader_param/roughness = 1.0
+shader_param/metallicity = 0.0
+shader_param/emission = Plane( 0, 0, 0, 0 )
+shader_param/specular = 0.8
+shader_param/emissionStrength = 4.0
+
+[node name="ThumbnailRenderer" type="Viewport"]
+size = Vector2( 64, 64 )
+own_world = true
+world = SubResource( 1 )
+handle_input_locally = false
+msaa = 1
+debanding = true
+render_target_v_flip = true
+render_target_update_mode = 1
+script = ExtResource( 2 )
+
+[node name="ThumbnailScene" parent="." instance=ExtResource( 1 )]
+material_override = SubResource( 3 )
+material/0 = SubResource( 4 )

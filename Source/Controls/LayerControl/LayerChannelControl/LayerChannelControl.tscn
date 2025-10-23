@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=1]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultOptionButton.cs" type="Script" id=2]
+[ext_resource path="res://Resources/Fonts/DefaultNoPadding.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultSlider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Source/Controls/LayerControl/LayerChannelControl/LayerChannelControl.cs" type="Script" id=5]
+[ext_resource path="res://Resources/Icons/Fluent_Warning_Filled.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.784314, 0.705882, 0.313726, 1 )
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[node name="LayerChannelControl" type="Panel"]
+anchor_right = 1.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 0, 60 )
+mouse_filter = 1
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="VisibleButton" type="Button" parent="."]
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 126.0
+margin_bottom = -28.0
+hint_tooltip = "Enable \\ Disable Channel"
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true
+pressed = true
+text = "Channel"
+
+[node name="BlendingMode" type="OptionButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 134.0
+margin_top = 5.0
+margin_right = -31.0
+margin_bottom = -29.0
+hint_tooltip = "Channel BlendingMode"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Normal"
+align = 1
+script = ExtResource( 2 )
+
+[node name="Blending" parent="." instance=ExtResource( 4 )]
+margin_left = 6.0
+margin_top = 37.0
+margin_right = -78.0
+margin_bottom = 55.0
+hint_tooltip = "Channel Blending Strength"
+min_value = 0.0
+max_value = 100.0
+value = 100.0
+valueMultiplier = 0.01
+
+[node name="EmptyPanel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -28.0
+hint_tooltip = "CHANNEL_EMPTY"
+mouse_filter = 1
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="EmptyPanel"]
+modulate = Color( 0.211765, 0.211765, 0.211765, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -13.0
+margin_top = -12.0
+margin_right = 13.0
+margin_bottom = 14.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6

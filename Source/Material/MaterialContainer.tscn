@@ -1,0 +1,649 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Resources/Styles/BrightPanelDefault.stylebox" type="StyleBox" id=1]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultSlider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Fonts/Default.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=4]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultScrollContainer.cs" type="Script" id=5]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultColorPickerButton.cs" type="Script" id=6]
+[ext_resource path="res://Source/Material/MaterialContainer.cs" type="Script" id=7]
+[ext_resource path="res://Source/Controls/ColorPalette/ColorPalette.cs" type="Script" id=8]
+[ext_resource path="res://Resources/Materials/CanvasChecker.material" type="Material" id=9]
+[ext_resource path="res://Resources/Icons/Fluent_Color_Regular.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Icons/Fluent_Color_Regular_Hover.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+draw_center = false
+border_width_top = 1
+border_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[node name="MaterialContainer" type="Container"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 292.0
+margin_bottom = 980.0
+rect_pivot_offset = Vector2( 83.9054, 41.8947 )
+mouse_filter = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 136.089, 163.878 ],
+"_edit_vertical_guides_": [ 283.107, 26.1405 ]
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 4 )
+scroll_horizontal_enabled = false
+script = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 282.0
+margin_bottom = 970.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+custom_constants/separation = 6
+
+[node name="Materials" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_right = 282.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Material1" type="Button" parent="ScrollContainer/VBoxContainer/Materials"]
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 8.0
+margin_right = -5.0
+margin_bottom = -8.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+toggle_mode = true
+pressed = true
+text = "1"
+
+[node name="Material2" type="Button" parent="ScrollContainer/VBoxContainer/Materials"]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = -12.0
+margin_bottom = -8.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+toggle_mode = true
+text = "2"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 282.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 0, 8 )
+custom_styles/separator = SubResource( 7 )
+
+[node name="BlendingMode" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 282.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 64 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BlendingMode"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Blending"
+
+[node name="BlendingMode" type="OptionButton" parent="ScrollContainer/VBoxContainer/BlendingMode"]
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 30.0
+margin_right = -14.0
+margin_bottom = 56.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+align = 1
+
+[node name="Decal" type="Panel" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 160.0
+margin_right = 264.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 140 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Decal"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Preview"
+
+[node name="Checker" type="ColorRect" parent="ScrollContainer/VBoxContainer/Decal"]
+material = ExtResource( 9 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 35.0
+margin_right = 48.0
+margin_bottom = 131.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview" type="TextureRect" parent="ScrollContainer/VBoxContainer/Decal/Checker"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DecalSettings" type="Panel" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 160.0
+margin_right = 264.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 0, 160 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/DecalSettings"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Setting"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeightOffset" parent="ScrollContainer/VBoxContainer/DecalSettings" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 42.0
+margin_right = -52.0
+margin_bottom = 66.0
+min_value = -100.0
+max_value = 100.0
+value = 0.0
+text = "Height Offset"
+valueMultiplier = 0.01
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/DecalSettings"]
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 70.0
+margin_right = -18.0
+margin_bottom = 80.0
+mouse_filter = 2
+theme = ExtResource( 4 )
+custom_styles/separator = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeightBlend" type="CheckButton" parent="ScrollContainer/VBoxContainer/DecalSettings"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_top = 80.0
+margin_right = -13.0
+margin_bottom = 110.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Height Blend"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeightFactor" parent="ScrollContainer/VBoxContainer/DecalSettings" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 130.0
+margin_right = -52.0
+margin_bottom = 154.0
+min_value = 0.0
+max_value = 100.0
+value = 0.0
+text = "Height Factor"
+valueMultiplier = 0.01
+
+[node name="Color" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 138.0
+margin_right = 282.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 0, 170 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Color"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "Color"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorPickerButton" parent="ScrollContainer/VBoxContainer/Color"]
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 30.0
+margin_right = -18.0
+margin_bottom = 58.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+icon_align = 1
+script = ExtResource( 6 )
+
+[node name="EnablingAlpha" type="Button" parent="ScrollContainer/VBoxContainer/Color"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -48.0
+margin_top = 32.0
+margin_right = -20.0
+margin_bottom = 60.0
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true
+pressed = true
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R" type="Label" parent="ScrollContainer/VBoxContainer/Color"]
+margin_left = 9.0
+margin_top = 66.0
+margin_right = 30.0
+margin_bottom = 93.0
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.678431, 0.486275, 0.486275, 1 )
+text = "R"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red" parent="ScrollContainer/VBoxContainer/Color" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 66.0
+margin_right = -54.0
+margin_bottom = 90.0
+min_value = 0.0
+max_value = 255.0
+value = 0.0
+scrollable = false
+valueFormat = "0"
+
+[node name="G" type="Label" parent="ScrollContainer/VBoxContainer/Color"]
+margin_left = 9.0
+margin_top = 91.0
+margin_right = 31.0
+margin_bottom = 118.0
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.65098, 0.780392, 0.635294, 1 )
+text = "G"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Green" parent="ScrollContainer/VBoxContainer/Color" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 91.0
+margin_right = -54.0
+margin_bottom = 115.0
+min_value = 0.0
+max_value = 255.0
+value = 0.0
+scrollable = false
+valueFormat = "0"
+
+[node name="B" type="Label" parent="ScrollContainer/VBoxContainer/Color"]
+margin_left = 9.0
+margin_top = 116.0
+margin_right = 31.0
+margin_bottom = 143.0
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.521569, 0.592157, 0.717647, 1 )
+text = "B"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" parent="ScrollContainer/VBoxContainer/Color" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 116.0
+margin_right = -54.0
+margin_bottom = 140.0
+min_value = 0.0
+max_value = 255.0
+value = 0.0
+scrollable = false
+valueFormat = "0"
+
+[node name="A" type="Label" parent="ScrollContainer/VBoxContainer/Color"]
+margin_left = 9.0
+margin_top = 141.0
+margin_right = 31.0
+margin_bottom = 168.0
+theme = ExtResource( 4 )
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Alpha" parent="ScrollContainer/VBoxContainer/Color" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 141.0
+margin_right = -54.0
+margin_bottom = 165.0
+min_value = 0.0
+max_value = 255.0
+value = 0.0
+scrollable = false
+valueFormat = "0"
+
+[node name="ColorPalette" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 314.0
+margin_right = 282.0
+margin_bottom = 626.0
+rect_min_size = Vector2( 0, 312 )
+rect_clip_content = true
+hint_tooltip = "[LMB]	  Pick Color
+[RMB]  Set Color"
+mouse_filter = 1
+theme = ExtResource( 4 )
+
+[node name="OpenPalette" type="TextureButton" parent="ScrollContainer/VBoxContainer/ColorPalette"]
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 36.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+toggle_mode = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+flip_h = true
+flip_v = true
+
+[node name="ColorPalette" type="GridContainer" parent="ScrollContainer/VBoxContainer/ColorPalette"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 42.0
+margin_right = -11.0
+margin_bottom = -10.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 4
+script = ExtResource( 8 )
+
+[node name="Roughness" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 632.0
+margin_right = 282.0
+margin_bottom = 682.0
+rect_min_size = Vector2( 0, 50 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Roughness"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "Roughness"
+
+[node name="Value" parent="ScrollContainer/VBoxContainer/Roughness" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 26.0
+margin_right = -54.0
+margin_bottom = 50.0
+min_value = 0.0
+max_value = 100.0
+value = 100.0
+scrollable = false
+valueMultiplier = 0.01
+
+[node name="Metallicity" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 688.0
+margin_right = 282.0
+margin_bottom = 738.0
+rect_min_size = Vector2( 0, 50 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Metallicity"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "Metallicity"
+
+[node name="Value" parent="ScrollContainer/VBoxContainer/Metallicity" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 26.0
+margin_right = -54.0
+margin_bottom = 50.0
+min_value = 0.0
+max_value = 100.0
+value = 0.0
+scrollable = false
+valueMultiplier = 0.01
+
+[node name="Height" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 744.0
+margin_right = 282.0
+margin_bottom = 794.0
+rect_min_size = Vector2( 0, 50 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Height"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "Height"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" parent="ScrollContainer/VBoxContainer/Height" instance=ExtResource( 2 )]
+margin_left = 16.0
+margin_top = 26.0
+margin_right = -54.0
+margin_bottom = 50.0
+min_value = 0.0
+max_value = 100.0
+value = 50.0
+scrollable = false
+valueMultiplier = 0.01
+
+[node name="Emission" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 800.0
+margin_right = 282.0
+margin_bottom = 858.0
+rect_min_size = Vector2( 0, 58 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Emission" type="Label" parent="ScrollContainer/VBoxContainer/Emission"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 3 )
+text = "Emission"
+
+[node name="Color" type="ColorPickerButton" parent="ScrollContainer/VBoxContainer/Emission"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 26.0
+margin_right = -10.0
+margin_bottom = 54.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+icon_align = 1
+script = ExtResource( 6 )
+
+[node name="DecalList" type="Panel" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 544.0
+margin_right = 310.0
+margin_bottom = 764.0
+rect_min_size = Vector2( 0, 220 )
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/DecalList"]
+margin_left = 4.0
+margin_right = 284.0
+margin_bottom = 27.0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="List" type="ItemList" parent="ScrollContainer/VBoxContainer/DecalList"]
+anchor_right = 1.0
+margin_left = 53.0
+margin_top = 30.0
+margin_right = -20.0
+margin_bottom = 180.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="Button" parent="ScrollContainer/VBoxContainer/DecalList"]
+margin_left = 16.0
+margin_top = 30.0
+margin_right = 46.0
+margin_bottom = 60.0
+hint_tooltip = "Add current Decal to List"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remove" type="Button" parent="ScrollContainer/VBoxContainer/DecalList"]
+margin_left = 16.0
+margin_top = 66.0
+margin_right = 46.0
+margin_bottom = 96.0
+hint_tooltip = "Remove current Decal from List"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clear" type="Button" parent="ScrollContainer/VBoxContainer/DecalList"]
+margin_left = 16.0
+margin_top = 104.0
+margin_right = 46.0
+margin_bottom = 134.0
+hint_tooltip = "Clear List"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+text = "C"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Random" type="CheckButton" parent="ScrollContainer/VBoxContainer/DecalList"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_top = 184.0
+margin_right = -13.0
+margin_bottom = 214.0
+hint_tooltip = "Random selection after each drawing"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+text = "Random"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Source/Controls/ToolSlider/ToolSlider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Icons/Fluent_Circle_Filled.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Icons/Fluent_Circle_Filled_Hover.png" type="Texture" id=3]
+[ext_resource path="res://Source/Tools/BrushSettingsContainer.cs" type="Script" id=4]
+[ext_resource path="res://Resources/Icons/Fluent_Border_Filled.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Icons/Fluent_Border_Filled_Hover.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=7]
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_left = 1
+border_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[node name="BrushSettingsContainer" type="HBoxContainer"]
+margin_right = 666.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+mouse_filter = 2
+script = ExtResource( 4 )
+
+[node name="Blending" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_right = 160.0
+margin_bottom = 40.0
+text = "Blending"
+valueMultiplier = 0.01
+suffix = "%"
+value = 100.0
+
+[node name="Size" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_left = 168.0
+margin_right = 328.0
+margin_bottom = 40.0
+text = "Size"
+minValue = 1.0
+maxValue = 64.0
+rounded = true
+suffix = "px"
+value = 1.0
+
+[node name="Hardness" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_left = 336.0
+margin_right = 496.0
+margin_bottom = 40.0
+text = "Hardness"
+valueMultiplier = 0.01
+suffix = "%"
+value = 100.0
+
+[node name="ShapeCircle" type="TextureButton" parent="."]
+margin_left = 504.0
+margin_right = 544.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+rect_pivot_offset = Vector2( 0, 1 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="ShapeSquare" type="TextureButton" parent="."]
+margin_left = 552.0
+margin_right = 592.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+rect_pivot_offset = Vector2( 0, 1 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Distance" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+margin_left = 998.0
+margin_right = 1158.0
+margin_bottom = 40.0
+text = "Distance"
+minValue = 1.0
+maxValue = 8.0
+rounded = true
+suffix = "px"
+value = 1.0
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 600.0
+margin_right = 608.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/separator = SubResource( 2 )
+
+[node name="Fading" type="Panel" parent="."]
+margin_left = 616.0
+margin_right = 694.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 78, 0 )
+mouse_filter = 2
+theme = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="Fading"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+hint_tooltip = "Enable Fading
+!!! Only in 2D Workspace !!!"
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+toggle_mode = true
+text = "Fading"
+
+[node name="FadingFalloff" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+margin_left = 670.0
+margin_right = 830.0
+margin_bottom = 40.0
+text = "Falloff"
+valueMultiplier = 0.01
+maxValue = 50.0
+suffix = "%"
+value = 35.0
+
+[node name="FadingPathLength" parent="." instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+margin_left = 670.0
+margin_right = 830.0
+margin_bottom = 40.0
+text = "Length"
+minValue = 1.0
+maxValue = 512.0
+rounded = true
+value = 48.0

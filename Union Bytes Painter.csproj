@@ -1,0 +1,28 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <AssemblyName>Union Bytes Painter</AssemblyName>
+    <EnableDynamicLoading>True</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>.mono/assemblies/Release/System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>.mono/assemblies/Release/System.Core.dll</HintPath>
+    </Reference>
+    <!--The following references were not added to the project file because they are automatically added by the Godot SDK.-->
+    <!--
+<Reference Include="GodotSharp">
+  <HintPath>../../../../mnt/Disco2/RE/Union Bytes/.mono/assemblies/Release/GodotSharp.dll</HintPath>
+</Reference>
+-->
+  </ItemGroup>
+</Project>

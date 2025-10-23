@@ -1,0 +1,588 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Source/Controls/PreviewFileDialog/PreviewFileDialog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Source/Controls/NoiseGroupPanel/NoiseGroupPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Source/Filter/FilterMenuButton.cs" type="Script" id=3]
+[ext_resource path="res://Source/Filter/FilterWindowDialog.cs" type="Script" id=4]
+[ext_resource path="res://Resources/Fonts/Default.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Resources/Fonts/WindowDialogTitle.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=7]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultScrollContainer.cs" type="Script" id=8]
+[ext_resource path="res://Source/Controls/GroupPanel/GroupPanel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Source/Controls/AdvancedSlider/AdvancedSlider.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 12.0
+content_margin_right = 6.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+draw_center = false
+border_width_bottom = 4
+border_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.529412, 0.0784314, 0.0784314, 1 )
+border_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+draw_center = false
+border_width_left = 2
+border_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="FilterMenuButton" type="MenuButton"]
+margin_right = 56.0
+margin_bottom = 29.0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_hover = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_colors/font_color_pressed = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+text = "FILTER"
+align = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_vertical_guides_": [ 681.487, 992.584, 287.619, 973.357, 620.886 ]
+}
+filterWindowDialogNodePath = NodePath("Filter")
+
+[node name="Filter" type="WindowDialog" parent="."]
+margin_left = 251.0
+margin_top = 150.0
+margin_right = 1031.0
+margin_bottom = 750.0
+rect_min_size = Vector2( 780, 500 )
+rect_pivot_offset = Vector2( -298.072, -40.3746 )
+theme = ExtResource( 7 )
+custom_fonts/title_font = ExtResource( 6 )
+popup_exclusive = true
+window_title = "FILTER"
+resizable = true
+script = ExtResource( 4 )
+imageLoadFileDialogNodePath = NodePath("LoadMaskFileDialog")
+flowLoadFileDialogNodePath = NodePath("LoadFlowMapFileDialog")
+
+[node name="Output" parent="Filter" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 16.0
+margin_right = 376.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 0, 416 )
+enableHideButton = false
+enableResetButton = false
+name = "OUTPUT"
+
+[node name="Image" type="TextureRect" parent="Filter/Output"]
+margin_left = 18.0
+margin_top = 48.0
+margin_right = 338.0
+margin_bottom = 368.0
+theme = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Channel" type="OptionButton" parent="Filter/Output"]
+anchor_right = 1.0
+margin_left = 18.0
+margin_top = 380.0
+margin_right = -18.0
+margin_bottom = 408.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 5 )
+expand_icon = true
+
+[node name="SC" type="ScrollContainer" parent="Filter"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 410.0
+margin_top = 16.0
+margin_right = -20.0
+margin_bottom = -64.0
+theme = ExtResource( 7 )
+scroll_horizontal_enabled = false
+script = ExtResource( 8 )
+
+[node name="VC" type="VBoxContainer" parent="Filter/SC"]
+margin_right = 350.0
+margin_bottom = 760.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+
+[node name="Correction" parent="Filter/SC/VC" instance=ExtResource( 9 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 350.0
+margin_bottom = 310.0
+rect_min_size = Vector2( 0, 310 )
+name = "CORRECTION"
+
+[node name="VC" type="VBoxContainer" parent="Filter/SC/VC/Correction"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = -8.0
+theme = ExtResource( 7 )
+
+[node name="Inverse" type="Button" parent="Filter/SC/VC/Correction/VC"]
+margin_right = 334.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_pressed = Color( 0.811765, 0.811765, 0.811765, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "INVERSE"
+
+[node name="Black" parent="Filter/SC/VC/Correction/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 38.0
+margin_right = 334.0
+margin_bottom = 74.0
+name = "BLACK"
+valueFormat = "0.00"
+step = 0.01
+maxValue = 1.0
+
+[node name="White" parent="Filter/SC/VC/Correction/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 84.0
+margin_right = 334.0
+margin_bottom = 120.0
+name = "WHITE"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+maxValue = 1.0
+
+[node name="Power" parent="Filter/SC/VC/Correction/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 130.0
+margin_right = 334.0
+margin_bottom = 166.0
+name = "POWER"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+maxValue = 10.0
+
+[node name="Saturation" parent="Filter/SC/VC/Correction/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 176.0
+margin_right = 334.0
+margin_bottom = 212.0
+name = "SATURATION"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+maxValue = 2.0
+
+[node name="Hue" parent="Filter/SC/VC/Correction/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 222.0
+margin_right = 334.0
+margin_bottom = 258.0
+name = "HUE"
+valueFormat = "0.00"
+step = 0.01
+minValue = -0.5
+maxValue = 0.5
+
+[node name="Blur" parent="Filter/SC/VC" instance=ExtResource( 9 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 332.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 164 )
+name = "BLUR"
+
+[node name="VC" type="VBoxContainer" parent="Filter/SC/VC/Blur"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = -6.0
+theme = ExtResource( 7 )
+
+[node name="Distance" parent="Filter/SC/VC/Blur/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_right = 316.0
+name = "DISTANCE"
+valueFormat = "0"
+rounded = true
+maxValue = 8.0
+
+[node name="IncludeAlpha" type="CheckButton" parent="Filter/SC/VC/Blur/VC"]
+margin_top = 46.0
+margin_right = 316.0
+margin_bottom = 76.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_pressed = Color( 0.811765, 0.811765, 0.811765, 1 )
+pressed = true
+text = "Include Alpha"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllChannels" type="CheckButton" parent="Filter/SC/VC/Blur/VC"]
+margin_top = 86.0
+margin_right = 316.0
+margin_bottom = 116.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_pressed = Color( 0.811765, 0.811765, 0.811765, 1 )
+pressed = true
+text = "All Channels"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Noise" parent="Filter/SC/VC" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 332.0
+margin_bottom = 706.0
+hide = true
+
+[node name="Flow" parent="Filter/SC/VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 332.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 0, 560 )
+name = "FLOW"
+
+[node name="VC" type="VBoxContainer" parent="Filter/SC/VC/Flow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = -6.0
+theme = ExtResource( 7 )
+
+[node name="Source" type="OptionButton" parent="Filter/SC/VC/Flow/VC"]
+margin_right = 316.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+
+[node name="Preview" type="TextureRect" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 38.0
+margin_right = 316.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 256, 128 )
+mouse_filter = 2
+theme = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Load" type="Button" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 176.0
+margin_right = 316.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 5 )
+text = "LOAD"
+
+[node name="Path" type="LineEdit" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 214.0
+margin_right = 316.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+editable = false
+placeholder_alpha = 0.5
+
+[node name="HSeparator" type="HSeparator" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 252.0
+margin_right = 316.0
+margin_bottom = 256.0
+custom_styles/separator = SubResource( 7 )
+
+[node name="Mode" type="OptionButton" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 266.0
+margin_right = 316.0
+margin_bottom = 294.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+
+[node name="Direction" parent="Filter/SC/VC/Flow/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 304.0
+margin_right = 316.0
+margin_bottom = 340.0
+name = "DIRECTION"
+maxValue = 360.0
+
+[node name="Distance" parent="Filter/SC/VC/Flow/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 350.0
+margin_right = 316.0
+margin_bottom = 386.0
+name = "DISTANCE"
+valueFormat = "0"
+rounded = true
+allowOverwriteMaximumValue = true
+maxValue = 64.0
+
+[node name="Steps" parent="Filter/SC/VC/Flow/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 396.0
+margin_right = 316.0
+margin_bottom = 432.0
+name = "STEPS"
+valueFormat = "0"
+value = 16.0
+rounded = true
+allowOverwriteMaximumValue = true
+minValue = 1.0
+maxValue = 64.0
+
+[node name="IncludeAlpha" type="CheckButton" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 442.0
+margin_right = 316.0
+margin_bottom = 472.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_pressed = Color( 0.811765, 0.811765, 0.811765, 1 )
+pressed = true
+text = "Include Alpha"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllChannels" type="CheckButton" parent="Filter/SC/VC/Flow/VC"]
+margin_top = 482.0
+margin_right = 316.0
+margin_bottom = 512.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_pressed = Color( 0.811765, 0.811765, 0.811765, 1 )
+pressed = true
+text = "All Channels"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" parent="Filter/SC/VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 570.0
+margin_right = 332.0
+margin_bottom = 760.0
+rect_min_size = Vector2( 0, 190 )
+name = "IMAGE"
+hide = true
+
+[node name="VC" type="VBoxContainer" parent="Filter/SC/VC/Image"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = -30.0
+theme = ExtResource( 7 )
+
+[node name="Load" type="Button" parent="Filter/SC/VC/Image/VC"]
+margin_right = 316.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 5 )
+text = "LOAD"
+
+[node name="Path" type="LineEdit" parent="Filter/SC/VC/Image/VC"]
+margin_top = 38.0
+margin_right = 316.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+editable = false
+placeholder_alpha = 0.5
+
+[node name="BlendingMode" type="OptionButton" parent="Filter/SC/VC/Image/VC"]
+margin_top = 76.0
+margin_right = 316.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+
+[node name="Remove" type="Button" parent="Filter/SC/VC/Image/VC"]
+margin_top = 114.0
+margin_right = 316.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_colors/font_color_hover = Color( 0.854902, 0.854902, 0.854902, 1 )
+custom_colors/font_color_pressed = Color( 0.854902, 0.854902, 0.854902, 1 )
+custom_fonts/font = ExtResource( 5 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+text = "REMOVE"
+
+[node name="Blending" parent="Filter/SC/VC" instance=ExtResource( 9 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 200.0
+margin_right = 350.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 0, 128 )
+name = "BLENDING"
+hide = true
+
+[node name="VC" type="VBoxContainer" parent="Filter/SC/VC/Blending"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = -6.0
+theme = ExtResource( 7 )
+
+[node name="Mode" type="OptionButton" parent="Filter/SC/VC/Blending/VC"]
+margin_right = 334.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Strength" parent="Filter/SC/VC/Blending/VC" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 38.0
+margin_right = 334.0
+margin_bottom = 74.0
+name = "STRENGTH"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+maxValue = 1.0
+
+[node name="VSeparator" type="VSeparator" parent="Filter"]
+anchor_bottom = 1.0
+margin_left = 392.0
+margin_top = 16.0
+margin_right = 396.0
+margin_bottom = -70.0
+custom_styles/separator = SubResource( 4 )
+
+[node name="OK" type="Button" parent="Filter"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = -46.0
+margin_right = 190.0
+margin_bottom = -17.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 5 )
+text = "APPLY"
+
+[node name="Cancel" type="Button" parent="Filter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -46.0
+margin_right = -80.0
+margin_bottom = -17.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 5 )
+text = "CANCEL"
+
+[node name="Preview" type="Panel" parent="Filter"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -410.0
+margin_top = -410.0
+margin_right = 410.0
+margin_bottom = 410.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="Filter/Preview"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -810.0
+margin_top = -810.0
+margin_right = -10.0
+margin_bottom = -10.0
+mouse_filter = 2
+expand = true
+stretch_mode = 6
+
+[node name="LoadMaskFileDialog" parent="Filter" instance=ExtResource( 1 )]
+window_title = "Load Mask"
+setWindowHidden = false
+
+[node name="LoadFlowMapFileDialog" parent="Filter" instance=ExtResource( 1 )]
+window_title = "Load Mask"
+setWindowHidden = false
+
+[connection signal="pressed" from="Filter/OK" to="Filter" method="Apply"]
+[connection signal="pressed" from="Filter/Cancel" to="Filter" method="Hide"]

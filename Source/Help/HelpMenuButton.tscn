@@ -1,0 +1,436 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Source/Help/HelpMenuButton.cs" type="Script" id=1]
+[ext_resource path="res://Source/Help/AboutWindowDialog.cs" type="Script" id=2]
+[ext_resource path="res://Source/Help/ControlsWindowDialog.cs" type="Script" id=3]
+[ext_resource path="res://Resources/Icons/Godot_Logo_Large.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Icons/UnionBytes_Logo_White.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Fonts/Default.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Resources/Fonts/WindowDialogTitle.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Resources/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Resources/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 12.0
+content_margin_right = 6.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+draw_center = false
+border_width_bottom = 4
+border_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+use_filter = true
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+use_filter = true
+extra_spacing_top = -2
+font_data = ExtResource( 9 )
+
+[node name="HelpMenuButton" type="MenuButton"]
+margin_right = 56.0
+margin_bottom = 29.0
+mouse_filter = 1
+theme = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_colors/font_color_pressed = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+text = "Help"
+align = 0
+script = ExtResource( 1 )
+controlsWindowDialogNodePath = NodePath("Controls")
+aboutWindowDialogNodePath = NodePath("About")
+
+[node name="Controls" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 239.0
+margin_top = 226.5
+margin_right = 1059.0
+margin_bottom = 846.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 600, 500 )
+theme = ExtResource( 10 )
+custom_fonts/title_font = ExtResource( 7 )
+popup_exclusive = true
+window_title = "Controls"
+resizable = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+richTextLabelNodePath = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -69.0
+mouse_filter = 1
+theme = ExtResource( 10 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+text = "
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="Controls"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -49.0
+margin_right = -40.0
+margin_bottom = -23.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 10 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 968.0
+margin_top = 225.5
+margin_right = 1568.0
+margin_bottom = 945.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 600, 720 )
+theme = ExtResource( 10 )
+popup_exclusive = true
+window_title = "About"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="About"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 590.0
+margin_bottom = 660.0
+theme = ExtResource( 10 )
+
+[node name="About" type="Tabs" parent="About/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+
+[node name="MadeBy" type="Label" parent="About/TabContainer/About"]
+anchor_right = 1.0
+margin_left = 44.0
+margin_top = 1.62915
+margin_right = -66.0
+margin_bottom = 49.6292
+custom_fonts/font = ExtResource( 7 )
+text = "Made by"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AchimMenzel" type="Label" parent="About/TabContainer/About"]
+anchor_right = 1.0
+margin_left = 43.9076
+margin_top = 28.6342
+margin_right = -66.0924
+margin_bottom = 76.6342
+custom_fonts/font = ExtResource( 7 )
+text = "Achim Menzel"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThanksForSupport" type="Label" parent="About/TabContainer/About"]
+anchor_right = 1.0
+margin_left = 44.0
+margin_top = 65.8798
+margin_right = -66.0
+margin_bottom = 113.88
+custom_fonts/font = ExtResource( 7 )
+text = "Thanks for the support to"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MartinGuttmann" type="Label" parent="About/TabContainer/About"]
+anchor_right = 1.0
+margin_left = 42.7091
+margin_top = 92.3712
+margin_right = -67.2909
+margin_bottom = 140.371
+custom_fonts/font = ExtResource( 7 )
+text = "Dr. Martin Guttmann"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="About/TabContainer/About"]
+margin_left = 9.98181
+margin_top = 154.218
+margin_right = 566.982
+margin_bottom = 176.218
+theme = ExtResource( 10 )
+
+[node name="Copyright" type="Label" parent="About/TabContainer/About"]
+anchor_right = 1.0
+margin_left = 39.0
+margin_top = 171.038
+margin_right = -71.0
+margin_bottom = 219.038
+custom_fonts/font = ExtResource( 7 )
+text = "(c) 2021-2024 Union Bytes"
+align = 1
+valign = 2
+
+[node name="UnionBytes" type="TextureRect" parent="About/TabContainer/About"]
+modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+margin_left = 106.0
+margin_top = 226.018
+margin_right = -119.0
+margin_bottom = 406.018
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HomepageLink" type="LinkButton" parent="About/TabContainer/About"]
+margin_left = 185.344
+margin_top = 418.123
+margin_right = 399.344
+margin_bottom = 445.123
+focus_mode = 2
+mouse_filter = 1
+custom_fonts/font = SubResource( 4 )
+text = "www.UnionBytes.de"
+underline = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="About/TabContainer/About"]
+visible = false
+margin_left = 10.6545
+margin_top = 454.923
+margin_right = 567.655
+margin_bottom = 476.923
+theme = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MadeWith" type="Label" parent="About/TabContainer/About"]
+visible = false
+anchor_right = 1.0
+margin_left = 46.1987
+margin_top = 472.521
+margin_right = -63.8013
+margin_bottom = 520.521
+custom_fonts/font = ExtResource( 7 )
+text = "Made with"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Godot" type="TextureRect" parent="About/TabContainer/About"]
+visible = false
+modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+margin_left = 134.953
+margin_top = 502.425
+margin_right = -159.047
+margin_bottom = 623.425
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terms & Conditions" type="Tabs" parent="About/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="About/TabContainer/Terms & Conditions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[fill]THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Achim Menzel (Union Bytes) are NOT responsible for any damage attributed to Union Bytes Painter. You are warned that you are using Union Bytes Painter at your own risk. No warranties are implied or given by Achim Menzel or any representative.
+[/fill]"
+text = "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Achim Menzel (Union Bytes) are NOT responsible for any damage attributed to Union Bytes Painter. You are warned that you are using Union Bytes Painter at your own risk. No warranties are implied or given by Achim Menzel or any representative.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Third-Party Licenses" type="Tabs" parent="About/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="About/TabContainer/Third-Party Licenses"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[fill]GODOT
+Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur. 
+Copyright (c) 2014-2021 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), 
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+IN THE SOFTWARE.
+
+
+
+Fluentui System Icons
+Copyright (c) 2020 Microsoft Corporation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+
+
+FastNoise.cs - C# Include
+Copyright(c) 2017 Jordan Peck
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and / or sell copies of the Software, and to permit persons to whom the Software is.
+
+
+
+FastNoiseLite.cs - C# Include
+Copyright(c) 2020 Jordan Peck (jordan.me2@gmail.com)
+Copyright(c) 2020 Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and / or sell copies of the Software, and to permit persons to whom the Software is.
+[/fill]"
+text = "GODOT
+Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur. 
+Copyright (c) 2014-2021 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), 
+to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+IN THE SOFTWARE.
+
+
+
+Fluentui System Icons
+Copyright (c) 2020 Microsoft Corporation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+
+
+FastNoise.cs - C# Include
+Copyright(c) 2017 Jordan Peck
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and / or sell copies of the Software, and to permit persons to whom the Software is.
+
+
+
+FastNoiseLite.cs - C# Include
+Copyright(c) 2020 Jordan Peck (jordan.me2@gmail.com)
+Copyright(c) 2020 Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and / or sell copies of the Software, and to permit persons to whom the Software is.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="About"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -49.0
+margin_right = -40.0
+margin_bottom = -20.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 10 )
+text = "Close"
+
+[connection signal="pressed" from="Controls/Close" to="Controls" method="Hide"]
+[connection signal="pressed" from="About/Close" to="About" method="Hide"]

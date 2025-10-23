@@ -1,0 +1,12 @@
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.csproj.AssemblyReference.cache
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.GeneratedMSBuildEditorConfig.editorconfig
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.AssemblyInfoInputs.cache
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.AssemblyInfo.cs
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.csproj.CoreCompileInputs.cache
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/bin/Debug/Union Bytes Painter.dll
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/bin/Debug/Union Bytes Painter.pdb
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/bin/Debug/System.Core.dll
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/bin/Debug/System.Xml.Linq.dll
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union By.3B7BE085.Up2Date
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.dll
+/home/jake/Desktop/Union Bytes Painter Demo/.mono/temp/obj/Debug/Union Bytes Painter.pdb

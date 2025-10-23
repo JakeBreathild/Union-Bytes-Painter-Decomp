@@ -1,0 +1,44 @@
+GDRE Tools v2.0.0
+CachyOS Linux #1 SMP PREEMPT_DYNAMIC Thu, 16 Oct 2025 21:08:47 +0000, NVIDIA GeForce RTX 4060, vulkan
+Opening file: ~/Downloads/Union Bytes Painter Demo/Union Bytes Painter Demo.exe
+Guessing bytecode revision from engine version: 3.6.0 (rev 0xa7aad78)
+Loaded 184 imported files
+ERROR: Could not load dotnet assembly: Assembly file 'Union Bytes Painter.dll' not found in any directory in /home/jake/Downloads/Union Bytes Painter Demo
+   at: load_project_dotnet_assembly (modules/gdsdecomp/utility/gdre_settings.cpp:2569)
+WARNING: Could not load C# assembly, not able to decompile C# scripts...
+   at: _project_post_load (modules/gdsdecomp/utility/gdre_settings.cpp:765)
+Detected Engine Version: 3.6.0
+Detected Bytecode Revision: 3.5.0-stable (a7aad78)
+Verified 660 files, no errors detected!
+Extracted 660 files, no errors detected!
+Unable to compile C# project; ensure that the project is built in the editor before making any changes.
+Loading resource strings, this may take a while!!
+Resource strings loaded!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     143
+Failed scripts:                         2
+Imported resources for export session:  184
+Successfully converted:                 184
+Lossy:                                  0
+Rewrote metadata:                       1
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.6.0 (Mono) to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

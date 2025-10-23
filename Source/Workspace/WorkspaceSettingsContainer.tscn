@@ -1,0 +1,385 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=1]
+[ext_resource path="res://Source/Workspace/WorkspaceSettingsContainer.cs" type="Script" id=2]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultSlider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Fonts/Default.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultColorPickerButton.cs" type="Script" id=5]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultScrollContainer.cs" type="Script" id=7]
+[ext_resource path="res://Source/Previewspace/PreviewspacePointLightSettings.tscn" type="PackedScene" id=8]
+
+[node name="WorkspaceSettingsContainer" type="Container"]
+margin_right = 284.0
+margin_bottom = 630.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ 13.7357, 252.323 ]
+}
+previewMeshScaleDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/PreviewMesh/PreviewMeshScale")
+previewUvScaleDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/PreviewMesh/PreviewUVScale")
+glowCheckButtonNodePath = NodePath("ScrollContainer/VBoxContainer/Shader/GlowEnabled")
+glowIntensityDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/Shader/GlowIntensity")
+emissionStrengthDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/Shader/EmissionStrength")
+ambientLightEnergyDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/AmbientLight/AmbientLightEnergy")
+skyContributionDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/AmbientLight/SkyContribution")
+ambientLightColorDefaultColorPickerButtonNodePath = NodePath("ScrollContainer/VBoxContainer/AmbientLight/AmbientLightColor")
+directLightCheckButtonNodePath = NodePath("ScrollContainer/VBoxContainer/DirectLight/Enabled")
+directLightEnergyDefaultSliderNodePath = NodePath("ScrollContainer/VBoxContainer/DirectLight/Energy")
+directLightColorDefaultColorPickerButtonNodePath = NodePath("ScrollContainer/VBoxContainer/DirectLight/Color")
+directLightShadowCheckButtonNodePath = NodePath("ScrollContainer/VBoxContainer/DirectLight/Shadow")
+pointLight1SettingsPanelNodePath = NodePath("ScrollContainer/VBoxContainer/PointLight1")
+pointLight2SettingsPanelNodePath = NodePath("ScrollContainer/VBoxContainer/PointLight2")
+pointLight3SettingsPanelNodePath = NodePath("ScrollContainer/VBoxContainer/PointLight3")
+lightIconsCheckButtonNodePath = NodePath("ScrollContainer/VBoxContainer/Display/LightIcons")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+mouse_filter = 1
+theme = ExtResource( 1 )
+scroll_horizontal_enabled = false
+script = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 258.0
+margin_bottom = 1605.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+
+[node name="PreviewMesh" type="Panel" parent="ScrollContainer/VBoxContainer"]
+visible = false
+margin_right = 258.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 0, 115 )
+mouse_filter = 2
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PreviewMesh"]
+margin_right = 99.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+text = "Preview Mesh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/PreviewMesh"]
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 24.0
+margin_right = -6.0
+margin_bottom = 28.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviewMeshScale" parent="ScrollContainer/VBoxContainer/PreviewMesh" instance=ExtResource( 3 )]
+margin_top = 45.0
+margin_right = -43.0
+margin_bottom = 69.0
+max_value = 100.0
+value = 10.0
+scrollable = false
+text = "Mesh Scale"
+valueMultiplier = 0.1
+valueFormat = "0.0"
+
+[node name="PreviewUVScale" parent="ScrollContainer/VBoxContainer/PreviewMesh" instance=ExtResource( 3 )]
+margin_top = 85.0
+margin_right = -43.0
+margin_bottom = 109.0
+min_value = 10.0
+max_value = 100.0
+value = 10.0
+scrollable = false
+text = "UV Scale"
+valueMultiplier = 0.1
+valueFormat = "0.0"
+
+[node name="Shader" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_right = 258.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+mouse_filter = 2
+theme = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Shader"]
+margin_right = 56.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+text = "Shader"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Shader"]
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 24.0
+margin_right = -6.0
+margin_bottom = 28.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlowEnabled" type="CheckButton" parent="ScrollContainer/VBoxContainer/Shader"]
+anchor_right = 1.0
+margin_left = -3.0
+margin_top = 30.0
+margin_right = -4.0
+margin_bottom = 60.0
+focus_mode = 0
+mouse_filter = 1
+custom_colors/font_color_pressed = Color( 0.854902, 0.854902, 0.854902, 1 )
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+text = "Glow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlowIntensity" parent="ScrollContainer/VBoxContainer/Shader" instance=ExtResource( 3 )]
+margin_top = 70.0
+margin_right = -48.0
+margin_bottom = 94.0
+min_value = 0.0
+max_value = 800.0
+value = 0.0
+scrollable = false
+text = "Glow Intensity"
+valueMultiplier = 0.01
+
+[node name="EmissionStrength" parent="ScrollContainer/VBoxContainer/Shader" instance=ExtResource( 3 )]
+margin_top = 105.0
+margin_right = -48.0
+margin_bottom = 129.0
+min_value = 0.0
+max_value = 100.0
+value = 40.0
+scrollable = false
+text = "Emission Strength"
+valueMultiplier = 0.1
+valueFormat = "0.0"
+
+[node name="AmbientLight" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 258.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 140 )
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/AmbientLight"]
+margin_right = 100.0
+margin_bottom = 27.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Ambient Light"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/AmbientLight"]
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 24.0
+margin_right = -6.0
+margin_bottom = 28.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmbientLightColor" type="ColorPickerButton" parent="ScrollContainer/VBoxContainer/AmbientLight"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 35.0
+margin_right = -10.0
+margin_bottom = 64.0
+focus_mode = 0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 4 )
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+script = ExtResource( 5 )
+
+[node name="AmbientLightEnergy" parent="ScrollContainer/VBoxContainer/AmbientLight" instance=ExtResource( 3 )]
+anchor_top = -0.00249725
+anchor_bottom = -0.00249725
+margin_top = 80.3746
+margin_right = -48.0
+margin_bottom = 104.375
+min_value = 0.0
+max_value = 100.0
+value = 100.0
+scrollable = false
+text = "Energy"
+valueMultiplier = 0.01
+
+[node name="SkyContribution" parent="ScrollContainer/VBoxContainer/AmbientLight" instance=ExtResource( 3 )]
+anchor_top = -0.00249725
+anchor_bottom = -0.00249725
+margin_top = 115.375
+margin_right = -48.0
+margin_bottom = 139.375
+min_value = 0.0
+max_value = 100.0
+value = 75.0
+scrollable = false
+text = "Sky Contribution"
+valueMultiplier = 0.01
+
+[node name="DirectLight" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 290.0
+margin_right = 258.0
+margin_bottom = 425.0
+rect_min_size = Vector2( 0, 135 )
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/DirectLight"]
+margin_right = 84.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Direct Light"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/DirectLight"]
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 24.0
+margin_right = -6.0
+margin_bottom = 28.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enabled" type="CheckButton" parent="ScrollContainer/VBoxContainer/DirectLight"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = -3.0
+margin_bottom = 27.0
+focus_mode = 0
+mouse_filter = 1
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+
+[node name="Color" type="ColorPickerButton" parent="ScrollContainer/VBoxContainer/DirectLight"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 35.0
+margin_right = -10.0
+margin_bottom = 64.0
+focus_mode = 0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 4 )
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy" parent="ScrollContainer/VBoxContainer/DirectLight" instance=ExtResource( 3 )]
+anchor_top = -0.00249725
+anchor_bottom = -0.00249725
+margin_top = 80.3996
+margin_right = -48.0
+margin_bottom = 104.4
+min_value = 0.0
+max_value = 200.0
+value = 75.0
+scrollable = false
+text = "Energy"
+valueMultiplier = 0.01
+
+[node name="Shadow" type="CheckButton" parent="ScrollContainer/VBoxContainer/DirectLight"]
+margin_left = -3.0
+margin_top = 105.0
+margin_right = 254.0
+margin_bottom = 135.0
+focus_mode = 0
+mouse_filter = 1
+pressed = true
+text = "Shadow"
+
+[node name="PointLight1" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 435.0
+margin_bottom = 795.0
+
+[node name="PointLight2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 805.0
+margin_bottom = 1165.0
+lightIndex = 1
+
+[node name="PointLight3" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 1175.0
+margin_bottom = 1535.0
+lightIndex = 2
+
+[node name="Display" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1545.0
+margin_right = 258.0
+margin_bottom = 1605.0
+rect_min_size = Vector2( 0, 60 )
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Display"]
+margin_right = 57.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Display"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/Display"]
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 24.0
+margin_right = -6.0
+margin_bottom = 28.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightIcons" type="CheckButton" parent="ScrollContainer/VBoxContainer/Display"]
+anchor_right = 1.0
+margin_left = -3.0
+margin_top = 30.0
+margin_right = -4.0
+margin_bottom = 60.0
+focus_mode = 0
+mouse_filter = 1
+custom_colors/font_color_pressed = Color( 0.854902, 0.854902, 0.854902, 1 )
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+text = "Light Icons"

@@ -1,0 +1,239 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Resources/Icons/Fluent_Eye_Show_Regular_Hover.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Icons/Fluent_Eye_Hide_Regular.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Fonts/Default.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=4]
+[ext_resource path="res://Resources/Icons/Fluent_Eye_Hide_Regular_Hover.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Icons/Fluent_Arrow_Hook_Down_Left_Regular.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Icons/Fluent_Arrow_Hook_Down_Left_Regular_Hover.png" type="Texture" id=7]
+[ext_resource path="res://Source/Controls/NoiseGroupPanel/NoiseGroupPanel.cs" type="Script" id=8]
+[ext_resource path="res://Source/Controls/AdvancedSlider/AdvancedSlider.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+thickness = 2
+
+[node name="NoiseGroupPanel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 706 )
+rect_clip_content = true
+mouse_filter = 1
+theme = ExtResource( 4 )
+script = ExtResource( 8 )
+name = "NOISE"
+
+[node name="Name" type="Label" parent="."]
+anchor_right = 1.0
+margin_right = -68.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "NOISE"
+
+[node name="Reset" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_top = 2.0
+margin_right = -40.0
+margin_bottom = 26.0
+hint_tooltip = "Reset"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+expand = true
+
+[node name="Hide" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_top = 2.0
+margin_right = -8.0
+margin_bottom = 26.0
+hint_tooltip = "Show\\Hide"
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 2 )
+expand = true
+
+[node name="Separator" type="HSeparator" parent="."]
+anchor_right = 1.0
+margin_left = 8.0
+margin_top = 25.0
+margin_right = -8.0
+margin_bottom = 29.0
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="VC" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 40.0
+margin_right = -8.0
+margin_bottom = -8.0
+custom_constants/separation = 6
+
+[node name="Type" type="OptionButton" parent="VC"]
+margin_right = 1904.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+hint_tooltip = "Noise Type"
+focus_mode = 0
+mouse_filter = 1
+
+[node name="Scale" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 34.0
+margin_right = 1904.0
+margin_bottom = 70.0
+name = "SCALE"
+value = 250.0
+step = 0.1
+allowOverwriteMaximumValue = true
+minValue = 0.1
+maxValue = 2000.0
+
+[node name="Seed" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 76.0
+margin_right = 1904.0
+margin_bottom = 112.0
+name = "SEED"
+valueFormat = "0"
+rounded = true
+allowOverwriteMinimumValue = true
+allowOverwriteMaximumValue = true
+maxValue = 1000.0
+
+[node name="Frequency" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 118.0
+margin_right = 1904.0
+margin_bottom = 154.0
+name = "FREQUENCY"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+allowOverwriteMaximumValue = true
+minValue = 0.01
+maxValue = 32.0
+
+[node name="Octaves" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 160.0
+margin_right = 1904.0
+margin_bottom = 196.0
+name = "OCTAVES"
+valueFormat = "0"
+value = 3.0
+rounded = true
+minValue = 1.0
+maxValue = 8.0
+
+[node name="Lacunarity" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 202.0
+margin_right = 1904.0
+margin_bottom = 238.0
+name = "LACUNARITY"
+valueFormat = "0,00"
+value = 2.0
+step = 0.01
+allowOverwriteMaximumValue = true
+maxValue = 16.0
+
+[node name="FractalType" type="OptionButton" parent="VC"]
+margin_top = 244.0
+margin_right = 1904.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 0, 28 )
+hint_tooltip = "Fractal Type"
+focus_mode = 0
+mouse_filter = 1
+
+[node name="CellularType" type="OptionButton" parent="VC"]
+margin_top = 278.0
+margin_right = 1904.0
+margin_bottom = 306.0
+rect_min_size = Vector2( 0, 28 )
+hint_tooltip = "Cellular Type"
+focus_mode = 0
+mouse_filter = 1
+
+[node name="Preview" type="TextureRect" parent="VC"]
+margin_top = 312.0
+margin_right = 1904.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 256, 128 )
+mouse_filter = 2
+theme = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="HSeparator" type="HSeparator" parent="VC"]
+margin_top = 446.0
+margin_right = 1904.0
+margin_bottom = 450.0
+custom_styles/separator = SubResource( 7 )
+
+[node name="Inverse" type="Button" parent="VC"]
+margin_top = 456.0
+margin_right = 1904.0
+margin_bottom = 484.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 4 )
+custom_colors/font_color_pressed = Color( 0.811765, 0.811765, 0.811765, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "INVERSE"
+
+[node name="AdjustmentBlack" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 490.0
+margin_right = 1904.0
+margin_bottom = 526.0
+name = "BLACK"
+valueFormat = "0.00"
+step = 0.01
+maxValue = 1.0
+
+[node name="AdjustmentWhite" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 532.0
+margin_right = 1904.0
+margin_bottom = 568.0
+name = "WHITE"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+maxValue = 1.0
+
+[node name="AdjustmentScale" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 574.0
+margin_right = 1904.0
+margin_bottom = 610.0
+name = "SCALE"
+valueFormat = "0.00"
+value = 1.0
+step = 0.01
+maxValue = 1.0
+
+[node name="AdjustmentPosition" parent="VC" instance=ExtResource( 9 )]
+anchor_right = 0.0
+margin_top = 616.0
+margin_right = 1904.0
+margin_bottom = 652.0
+name = "POSITION"
+valueFormat = "0.00"
+value = 0.5
+step = 0.01
+maxValue = 1.0

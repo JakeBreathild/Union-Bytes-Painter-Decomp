@@ -1,0 +1,1197 @@
+[gd_scene load_steps=85 format=2]
+
+[ext_resource path="res://Source/Workspace/Workspace.cs" type="Script" id=1]
+[ext_resource path="res://Resources/Materials/WorkspaceFull.material" type="Material" id=2]
+[ext_resource path="res://Source/Gui/Gui.cs" type="Script" id=3]
+[ext_resource path="res://Source/Main.cs" type="Script" id=4]
+[ext_resource path="res://Resources/Materials/Grid.material" type="Material" id=5]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=6]
+[ext_resource path="res://Resources/Styles/HoverPanelDefault.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://Source/Controls/ChannelsContainer/ChannelsContainer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Source/Workspace/WorkspaceSettingsContainer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Source/Tools/FillingBucketSettingsContainer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/Icons/Fluent_Bookmark_Multiple_Regular.png" type="Texture" id=11]
+[ext_resource path="res://Source/Previewspace/PreviewspaceViewportContainer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Resources/Materials/Node.material" type="Material" id=13]
+[ext_resource path="res://Masks/UnionBytesMask.png" type="Image" id=14]
+[ext_resource path="res://Resources/Materials/WorkspaceChannel.material" type="Material" id=15]
+[ext_resource path="res://Source/Controls/ChannelList/ChannelList.cs" type="Script" id=16]
+[ext_resource path="res://Resources/Icons/Fluent_Bookmark_Multiple_Regular_Hover.png" type="Texture" id=17]
+[ext_resource path="res://Source/Environment/WorkspaceEnvironment.tres" type="Environment" id=18]
+[ext_resource path="res://Source/Tools/StampSettingsContainer.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Source/ToolBar/ToolsContainer.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Source/Material/MaterialContainer.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Resources/Materials/PreviewChannel.material" type="Material" id=22]
+[ext_resource path="res://Resources/Materials/Checker.material" type="Material" id=23]
+[ext_resource path="res://Source/Display/DisplaySettingsContainer.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Down_Regular.png" type="Texture" id=25]
+[ext_resource path="res://Source/Tools/LineSettingsContainer.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Source/Gui/ViewportSplitContainer.cs" type="Script" id=27]
+[ext_resource path="res://Resources/Splash.png" type="Texture" id=28]
+[ext_resource path="res://Source/File/SplashWindowDialog.cs" type="Script" id=29]
+[ext_resource path="res://Resources/Fonts/WindowDialogTitle.tres" type="DynamicFont" id=30]
+[ext_resource path="res://Source/Environment/PreviewEnvironment.tres" type="Environment" id=31]
+[ext_resource path="res://Source/File/FileMenuButton.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Source/Filter/FilterMenuButton.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Down_Regular_Hover.png" type="Texture" id=34]
+[ext_resource path="res://Source/Bake/BakeMenuButton.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Resources/Styles/MenuBackground.stylebox" type="StyleBox" id=36]
+[ext_resource path="res://Source/Help/HelpMenuButton.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Source/Tools/UvEditSettingsContainer.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultHoverPanel.cs" type="Script" id=39]
+[ext_resource path="res://Resources/Materials/PreviewFullTransmission.material" type="Material" id=40]
+[ext_resource path="res://Resources/Materials/PreviewFull.material" type="Material" id=41]
+[ext_resource path="res://Resources/Materials/Outline.material" type="Material" id=42]
+[ext_resource path="res://Source/Tools/SelectSettingsContainer.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Resources/Icons/UnionBytes_Logo_White.png" type="Texture" id=44]
+[ext_resource path="res://Source/ThumbnailRenderer/ThumbnailRenderer.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Resources/Icons/Fluent_Arrow_Sync_Regular.png" type="Texture" id=46]
+[ext_resource path="res://Resources/Fonts/Small.tres" type="DynamicFont" id=47]
+[ext_resource path="res://Resources/Styles/LibrarySelection.stylebox" type="StyleBox" id=48]
+[ext_resource path="res://Resources/Icons/Fluent_Save_Regular.png" type="Texture" id=49]
+[ext_resource path="res://Resources/Icons/Fluent_Folder_Regular.png" type="Texture" id=50]
+[ext_resource path="res://Resources/Icons/Fluent_Add_Regular.png" type="Texture" id=51]
+[ext_resource path="res://Resources/Icons/Fluent_Delete_Regular.png" type="Texture" id=52]
+[ext_resource path="res://Resources/Icons/Fluent_Delete_Regular_Hover.png" type="Texture" id=53]
+[ext_resource path="res://Resources/Fonts/Bold.tres" type="DynamicFont" id=54]
+[ext_resource path="res://Source/ResourcesLoader.cs" type="Script" id=55]
+[ext_resource path="res://Resources/Icons/Fluent_Lightbulb_Regular.png" type="Texture" id=56]
+[ext_resource path="res://Source/Controls/DecalBookshelf/DecalBookshelf.tscn" type="PackedScene" id=57]
+[ext_resource path="res://Resources/Icons/OldFileVersion.png" type="Texture" id=58]
+[ext_resource path="res://Source/ProjectThumbnailRenderer/ProjectThumbnailRenderer.tscn" type="PackedScene" id=59]
+[ext_resource path="res://Source/Controls/MaskBookshelf/MaskBookshelf.tscn" type="PackedScene" id=60]
+[ext_resource path="res://Resources/Fonts/Default.tres" type="DynamicFont" id=61]
+[ext_resource path="res://Source/Workspace/WorkspaceViewportContainer.cs" type="Script" id=62]
+[ext_resource path="res://Source/Camera/ToolCamera.tscn" type="PackedScene" id=63]
+[ext_resource path="res://Source/Controls/LayerPanel/LayerPanel.tscn" type="PackedScene" id=64]
+[ext_resource path="res://Source/Controls/LayerControl/LayerControl.tscn" type="PackedScene" id=65]
+[ext_resource path="res://Source/Tools/BrushSettingsContainer.tscn" type="PackedScene" id=66]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultScrollContainer.cs" type="Script" id=67]
+[ext_resource path="res://Source/Controls/PreviewFileDialog/PreviewFileDialog.tscn" type="PackedScene" id=68]
+[ext_resource path="res://Resources/Materials/Shader/PreviewChannelTwoSides.shader" type="Shader" id=69]
+[ext_resource path="res://Resources/Materials/PreviewFullTwoSides.material" type="Material" id=70]
+[ext_resource path="res://Source/Mask/MaskMenuButton.tscn" type="PackedScene" id=71]
+[ext_resource path="res://Resources/Icons/Fluent_Eraser_Modified.png" type="Texture" id=72]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Up_Regular_Hover.png" type="Texture" id=73]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Up_Regular.png" type="Texture" id=74]
+[ext_resource path="res://Resources/Icons/Fluent_Add_Regular_Hover.png" type="Texture" id=75]
+[ext_resource path="res://Resources/Icons/Fluent_Save_Regular_Hover.png" type="Texture" id=76]
+[ext_resource path="res://Resources/Icons/Fluent_Folder_Regular_Hover.png" type="Texture" id=77]
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 69 )
+shader_param/uvScale = 1.0
+shader_param/showMask = false
+shader_param/previewBlendingMode = 0
+shader_param/previewColorEnabled = true
+shader_param/previewColor = null
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 9.0
+content_margin_right = 9.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.211765, 0.211765, 0.211765, 0.643137 )
+border_color = Color( 0.16, 0.16, 0.16, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color( 0.16, 0.16, 0.16, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.192157, 0.192157, 0.192157, 1 )
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.160784, 0.160784, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+border_width_right = 1
+border_color = Color( 0.16, 0.16, 0.16, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+border_width_left = 1
+border_color = Color( 0.16, 0.16, 0.16, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+draw_center = false
+border_width_left = 1
+border_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+DebugMaterial = ExtResource( 5 )
+PreviewViewportContainerNodePath = NodePath("Gui/HSplitContainer/PreviewViewportContainer")
+DebugRichTextLabelNodePath = NodePath("Gui/Debug/TabContainer/Debug/RichTextLabel")
+
+[node name="ResourcesLoader" type="Node" parent="."]
+script = ExtResource( 55 )
+defaultTheme = ExtResource( 6 )
+librarySelectionStyleBox = ExtResource( 48 )
+defaultFont = ExtResource( 61 )
+boldFont = ExtResource( 54 )
+workspaceEnvironment = ExtResource( 18 )
+previewEnvironment = ExtResource( 31 )
+workspaceFullMaterial = ExtResource( 2 )
+workspaceChannelMaterial = ExtResource( 15 )
+checkerMaterial = ExtResource( 23 )
+gridMaterial = ExtResource( 5 )
+outlineMaterial = ExtResource( 42 )
+nodeMaterial = ExtResource( 13 )
+previewspaceDebugMaterial = ExtResource( 5 )
+previewFullMaterial = ExtResource( 41 )
+previewFullTwoSidesMaterial = ExtResource( 70 )
+previewFullTransmissionMaterial = ExtResource( 40 )
+previewChannelMaterial = ExtResource( 22 )
+previewChannelTwoSidesMaterial = SubResource( 8 )
+defaultMaskImage = ExtResource( 14 )
+lightIconTexture = ExtResource( 56 )
+librarySyncIcon = ExtResource( 46 )
+oldFileVersionIconTexture = ExtResource( 58 )
+toolCameraScene = ExtResource( 63 )
+thumbnailRendererScene = ExtResource( 45 )
+projectThumbnailRendererScene = ExtResource( 59 )
+
+[node name="Gui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+msgAcceptDialogNodePath = NodePath("MsgAcceptDialog")
+workspaceNodePath = NodePath("HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace")
+fileMenuButtonNodePath = NodePath("Menu/HBoxContainer/FileMenuButton")
+filterMenuButtonNodePath = NodePath("Menu/HBoxContainer/FilterMenuButton")
+bakeMenuButtonNodePath = NodePath("Menu/HBoxContainer/BakeMenuButton")
+helpMenuButtonNodePath = NodePath("Menu/HBoxContainer/HelpMenuButton")
+worksheetLabelNodePath = NodePath("Menu/Worksheet")
+versionLabelNodePath = NodePath("Menu/Version")
+informationsLabelNodePath = NodePath("Informations/Tool")
+channelLabelNodePath = NodePath("Informations/Channel")
+controlIconTextureRectNodePath = NodePath("ControlIcon")
+controlsRichTextLabelNodePath = NodePath("Controls")
+layerPanelNodePath = NodePath("Material/VSplitContainer/LayerPanel")
+layerControlNodePath = NodePath("Material/VSplitContainer/TabContainer/Layer/VBoxContainer/LayerControl")
+historyItemListNodePath = NodePath("Debug/TabContainer/History/ItemList")
+previewViewportContainerNodePath = NodePath("HSplitContainer/PreviewViewportContainer")
+displaySettingsContainerNodePath = NodePath("HeadBar/DisplaySettingsContainer")
+brushSettingsContainerNodePath = NodePath("HeadBar/BrushSettingsContainer")
+lineSettingsContainerNodePath = NodePath("HeadBar/LineSettingsContainer")
+fillingBucketSettingsContainerNodePath = NodePath("HeadBar/FillingBucketSettingsContainer")
+stampSettingsContainerNodePath = NodePath("HeadBar/StampSettingsContainer")
+selectSettingsContainerNodePath = NodePath("HeadBar/SelectSettingsContainer")
+uvEditSettingsContainerNodePath = NodePath("HeadBar/UvEditSettingsContainer")
+toolsContainerNodePath = NodePath("ToolBar/ToolsContainer")
+materialTabContainerNodePath = NodePath("Material/VSplitContainer/TabContainer")
+materialContainerNodePath = NodePath("Material/VSplitContainer/TabContainer/Material/MaterialContainer")
+channelsContainerNodePath = NodePath("Channels/ChannelsContainer")
+currentChannelItemListNodePath = NodePath("CurrentChannel/CurrentChannelItemList")
+libraryHoverPanelNodePath = NodePath("Library")
+libraryContainerNodePath = NodePath("Library/TabContainer/Library/LibraryContainer")
+settingsContainerNodePath = NodePath("Material/VSplitContainer/TabContainer/Scene/SettingsContainer")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Gui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = 72.0
+margin_right = -330.0
+margin_bottom = -224.0
+theme = ExtResource( 6 )
+custom_constants/separation = 12
+script = ExtResource( 27 )
+guiNodePath = NodePath("..")
+workspaceViewportNodePath = NodePath("WorkspaceViewportContainer/Viewport")
+
+[node name="WorkspaceViewportContainer" type="ViewportContainer" parent="Gui/HSplitContainer"]
+margin_bottom = 784.0
+stretch = true
+script = ExtResource( 62 )
+
+[node name="Viewport" type="Viewport" parent="Gui/HSplitContainer/WorkspaceViewportContainer"]
+size = Vector2( 64, 64 )
+size_override_stretch = true
+handle_input_locally = false
+msaa = 2
+render_target_update_mode = 3
+physics_object_picking = true
+shadow_atlas_quad_0 = 1
+
+[node name="Workspace" type="Node" parent="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport"]
+script = ExtResource( 1 )
+previewspaceViewportContainerNodePath = NodePath("../../../PreviewViewportContainer")
+libraryContainerNodePath = NodePath("../../../../Library/TabContainer/Library/LibraryContainer")
+saveLibraryPresetsFileDialogNodePath = NodePath("../../../../Dialogs/SavePresetFileDialog")
+loadLibraryPresetsFileDialogNodePath = NodePath("../../../../Dialogs/LoadPresetFileDialog")
+
+[node name="PreviewViewportContainer" parent="Gui/HSplitContainer" instance=ExtResource( 12 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 0.0
+margin_right = 1534.0
+margin_bottom = 784.0
+stretch = true
+
+[node name="ControlIcon" type="TextureRect" parent="Gui"]
+visible = false
+modulate = Color( 0.627451, 0.117647, 0.117647, 1 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 394.0
+margin_top = -294.0
+margin_right = 458.0
+margin_bottom = -230.0
+texture = ExtResource( 72 )
+expand = true
+stretch_mode = 6
+
+[node name="Controls" type="RichTextLabel" parent="Gui"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 74.0
+margin_top = -480.0
+margin_right = 390.0
+margin_bottom = -230.0
+mouse_filter = 2
+theme = ExtResource( 6 )
+custom_colors/default_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/mono_font = ExtResource( 47 )
+custom_fonts/bold_italics_font = ExtResource( 47 )
+custom_fonts/italics_font = ExtResource( 47 )
+custom_fonts/bold_font = ExtResource( 47 )
+custom_fonts/normal_font = ExtResource( 47 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Informations" type="Panel" parent="Gui"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = -224.0
+margin_right = -330.0
+margin_bottom = -200.0
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 39 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+DefaultStyleBox = SubResource( 2 )
+
+[node name="Channel" type="Label" parent="Gui/Informations"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 330.0
+margin_top = -24.0
+margin_right = 530.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 61 )
+text = "Channel Information"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seperator1" type="Label" parent="Gui/Informations"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 322.958
+margin_top = -25.0
+margin_right = 338.958
+margin_bottom = 4.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 61 )
+text = "|"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tool" type="Label" parent="Gui/Informations"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 550.0
+margin_top = -24.0
+margin_right = 750.0
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 61 )
+text = "Tool Information"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seperator2" type="Label" parent="Gui/Informations"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 540.962
+margin_top = -25.0
+margin_right = 556.962
+margin_bottom = 4.0
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0.0784314, 0.8, 0.552941, 1 )
+custom_fonts/font = ExtResource( 61 )
+text = "|"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LibraryButton" type="Panel" parent="Gui"]
+margin_left = 56.0
+margin_top = 72.0
+margin_right = 112.0
+margin_bottom = 128.0
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 39 )
+DefaultStyleBox = SubResource( 3 )
+
+[node name="OpenLibrary" type="TextureButton" parent="Gui/LibraryButton"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 48.0
+hint_tooltip = "Show Library \\ Decals \\ Masks \\ Scene Settings"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+expand = true
+stretch_mode = 5
+
+[node name="Library" type="Panel" parent="Gui"]
+visible = false
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = 72.0
+margin_right = 376.0
+margin_bottom = -224.0
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 39 )
+DefaultStyleBox = SubResource( 4 )
+HideAfterMouseExited = true
+
+[node name="TabContainer" type="TabContainer" parent="Gui/Library"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -57.9999
+mouse_filter = 1
+theme = ExtResource( 6 )
+custom_fonts/font = ExtResource( 61 )
+tab_align = 0
+drag_to_rearrange_enabled = true
+use_hidden_tabs_for_min_size = true
+
+[node name="Library" type="Tabs" parent="Gui/Library/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 2
+tab_align = 0
+
+[node name="LibraryContainer" type="Container" parent="Gui/Library/TabContainer/Library"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -66.0001
+mouse_filter = 1
+
+[node name="AddButton" type="TextureButton" parent="Gui/Library/TabContainer/Library"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -45.0001
+margin_right = 44.0
+margin_bottom = -5.00012
+hint_tooltip = "Add Preset to the End"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 51 )
+texture_pressed = ExtResource( 75 )
+texture_hover = ExtResource( 75 )
+expand = true
+stretch_mode = 5
+
+[node name="DeleteButton" type="TextureButton" parent="Gui/Library/TabContainer/Library"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 52.0
+margin_top = -45.0001
+margin_right = 92.0
+margin_bottom = -5.00012
+hint_tooltip = "Delete Preset"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 52 )
+texture_pressed = ExtResource( 53 )
+texture_hover = ExtResource( 53 )
+expand = true
+stretch_mode = 5
+
+[node name="UpButton" type="TextureButton" parent="Gui/Library/TabContainer/Library"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -45.0001
+margin_right = 140.0
+margin_bottom = -5.00012
+hint_tooltip = "Move Preset Up"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 74 )
+texture_pressed = ExtResource( 73 )
+texture_hover = ExtResource( 73 )
+expand = true
+stretch_mode = 5
+
+[node name="DownButton" type="TextureButton" parent="Gui/Library/TabContainer/Library"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 148.0
+margin_top = -45.0001
+margin_right = 188.0
+margin_bottom = -5.00012
+hint_tooltip = "Move Preset Down"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 34 )
+texture_hover = ExtResource( 34 )
+expand = true
+stretch_mode = 5
+
+[node name="SaveButton" type="TextureButton" parent="Gui/Library/TabContainer/Library"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -65.0
+margin_top = -37.0001
+margin_right = -37.0
+margin_bottom = -9.00012
+hint_tooltip = "Save Preset Library"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 49 )
+texture_pressed = ExtResource( 76 )
+texture_hover = ExtResource( 76 )
+expand = true
+stretch_mode = 5
+
+[node name="LoadButton" type="TextureButton" parent="Gui/Library/TabContainer/Library"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -31.0
+margin_top = -37.0001
+margin_right = -3.0
+margin_bottom = -9.00012
+hint_tooltip = "Load Preset Library"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+texture_normal = ExtResource( 50 )
+texture_pressed = ExtResource( 77 )
+texture_hover = ExtResource( 77 )
+expand = true
+stretch_mode = 5
+
+[node name="Decals" type="Tabs" parent="Gui/Library/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 33.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 2
+tab_align = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Gui/Library/TabContainer/Decals"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.00012
+mouse_filter = 1
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DecalBookshelf" parent="Gui/Library/TabContainer/Decals/ScrollContainer" instance=ExtResource( 57 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 285.0
+margin_bottom = 0.0
+size_flags_horizontal = 3
+
+[node name="Masks" type="Tabs" parent="Gui/Library/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 33.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 2
+tab_align = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Gui/Library/TabContainer/Masks"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.00012
+mouse_filter = 1
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaksBookshelf" parent="Gui/Library/TabContainer/Masks/ScrollContainer" instance=ExtResource( 60 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 285.0
+margin_bottom = 0.0
+size_flags_horizontal = 3
+
+[node name="KeepVisible" type="CheckButton" parent="Gui/Library"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -172.0
+margin_top = -41.0
+margin_right = -8.0
+margin_bottom = -11.0
+hint_tooltip = "Remain visible when the Mouse leaves the Panel"
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+custom_constants/check_vadjust = -2
+custom_fonts/font = ExtResource( 61 )
+text = "Keep Visible"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug" type="Panel" parent="Gui"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1046.0
+margin_top = -200.0
+margin_right = -330.0
+rect_clip_content = true
+theme = ExtResource( 6 )
+custom_styles/panel = ExtResource( 7 )
+script = ExtResource( 39 )
+DefaultStyleBox = ExtResource( 7 )
+
+[node name="TabContainer" type="TabContainer" parent="Gui/Debug"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+mouse_filter = 1
+theme = ExtResource( 6 )
+tab_align = 0
+drag_to_rearrange_enabled = true
+use_hidden_tabs_for_min_size = true
+
+[node name="History" type="Tabs" parent="Gui/Debug/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 1
+
+[node name="ItemList" type="ItemList" parent="Gui/Debug/TabContainer/History"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+
+[node name="Debug" type="Tabs" parent="Gui/Debug/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gui/Debug/TabContainer/Debug"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+focus_mode = 2
+mouse_filter = 1
+theme = ExtResource( 6 )
+custom_fonts/bold_italics_font = ExtResource( 61 )
+custom_fonts/normal_font = ExtResource( 61 )
+bbcode_enabled = true
+scroll_active = false
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Log" type="Tabs" parent="Gui/Debug/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gui/Debug/TabContainer/Log"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+focus_mode = 2
+mouse_filter = 1
+theme = ExtResource( 6 )
+custom_fonts/bold_italics_font = ExtResource( 61 )
+custom_fonts/normal_font = ExtResource( 61 )
+bbcode_enabled = true
+text = "WIP"
+scroll_active = false
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentChannel" type="Panel" parent="Gui"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = -200.0
+margin_right = 276.0
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 39 )
+DefaultStyleBox = SubResource( 5 )
+
+[node name="CurrentChannelItemList" type="ItemList" parent="Gui/CurrentChannel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 9.32727
+margin_right = -10.0
+margin_bottom = -10.6727
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 6 )
+custom_fonts/font = ExtResource( 61 )
+script = ExtResource( 16 )
+
+[node name="Channels" type="Panel" parent="Gui"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 276.0
+margin_top = -200.0
+margin_right = 1046.0
+theme = ExtResource( 6 )
+custom_styles/panel = ExtResource( 7 )
+script = ExtResource( 39 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+DefaultStyleBox = ExtResource( 7 )
+
+[node name="ChannelsContainer" parent="Gui/Channels" instance=ExtResource( 8 )]
+margin_left = 10.0
+margin_top = 9.55103
+margin_right = 771.0
+margin_bottom = 189.551
+
+[node name="Material" type="Panel" parent="Gui"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -330.0
+margin_top = 72.0
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 39 )
+DefaultStyleBox = SubResource( 5 )
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Gui/Material"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+mouse_filter = 1
+theme = ExtResource( 6 )
+split_offset = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerPanel" parent="Gui/Material/VSplitContainer" instance=ExtResource( 64 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_right = 314.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 120 )
+layerControlNodePath = NodePath("../TabContainer/Layer/VBoxContainer/LayerControl")
+
+[node name="TabContainer" type="TabContainer" parent="Gui/Material/VSplitContainer"]
+margin_top = 232.0
+margin_right = 314.0
+margin_bottom = 992.0
+mouse_filter = 1
+tab_align = 0
+drag_to_rearrange_enabled = true
+use_hidden_tabs_for_min_size = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Material" type="Tabs" parent="Gui/Material/VSplitContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 1
+
+[node name="MaterialContainer" parent="Gui/Material/VSplitContainer/TabContainer/Material" instance=ExtResource( 21 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="Layer" type="Tabs" parent="Gui/Material/VSplitContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 1
+
+[node name="VBoxContainer" type="ScrollContainer" parent="Gui/Material/VSplitContainer/TabContainer/Layer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 67 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerControl" parent="Gui/Material/VSplitContainer/TabContainer/Layer/VBoxContainer" instance=ExtResource( 65 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 299.0
+margin_bottom = 450.0
+layerPanelNodePath = NodePath("../../../../LayerPanel")
+
+[node name="Scene" type="Tabs" parent="Gui/Material/VSplitContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.5
+margin_top = 36.5
+margin_right = -7.5
+margin_bottom = -7.5
+mouse_filter = 2
+tab_align = 0
+
+[node name="SettingsContainer" parent="Gui/Material/VSplitContainer/TabContainer/Scene" instance=ExtResource( 9 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+margin_bottom = -2.00012
+libraryDefaultHoverPanelNodePath = NodePath("../../../../../Library")
+loadPreviewMeshFileDialogNodePath = NodePath("../../../../../Dialogs/LoadMeshFileDialog")
+savePreviewMeshFileDialogNodePath = NodePath("../../../../../Dialogs/SaveMeshFileDialog")
+
+[node name="ToolBar" type="Panel" parent="Gui"]
+anchor_bottom = 1.0
+margin_top = 72.0
+margin_right = 56.0
+theme = ExtResource( 6 )
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 39 )
+DefaultStyleBox = SubResource( 4 )
+
+[node name="ToolsContainer" parent="Gui/ToolBar" instance=ExtResource( 20 )]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 48.0
+margin_bottom = 616.0
+guiNodePath = NodePath("../..")
+
+[node name="HeadBar" type="Panel" parent="Gui"]
+anchor_right = 1.0
+margin_top = 26.0
+margin_bottom = 72.0
+theme = ExtResource( 6 )
+custom_styles/panel = ExtResource( 36 )
+script = ExtResource( 39 )
+DefaultStyleBox = ExtResource( 36 )
+
+[node name="UnionBytes" type="TextureRect" parent="Gui/HeadBar"]
+modulate = Color( 1, 1, 1, 0.352941 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -88.0
+margin_top = -44.0
+margin_right = -8.0
+margin_bottom = -2.0
+mouse_filter = 2
+texture = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+
+[node name="DisplaySettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 24 )]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 292.0
+margin_bottom = 44.0
+
+[node name="VSeparator" type="VSeparator" parent="Gui/HeadBar"]
+margin_left = 300.0
+margin_top = 6.0
+margin_right = 305.0
+margin_bottom = 42.0
+mouse_filter = 2
+theme = ExtResource( 6 )
+custom_styles/separator = SubResource( 6 )
+
+[node name="BrushSettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 66 )]
+margin_left = 316.0
+margin_top = 3.0
+margin_right = 1188.0
+margin_bottom = 43.0
+
+[node name="LineSettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 26 )]
+visible = false
+margin_left = 316.0
+margin_top = 3.0
+margin_right = 1000.0
+margin_bottom = 43.0
+
+[node name="FillingBucketSettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 10 )]
+visible = false
+margin_left = 316.0
+margin_top = 3.0
+margin_right = 940.0
+margin_bottom = 43.0
+loadMaskFileDialogNodePath = NodePath("../../Dialogs/LoadBucketMaskFileDialog")
+loadDecalFileDialogNodePath = NodePath("../../Dialogs/LoadBucketDecalFileDialog")
+
+[node name="StampSettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 19 )]
+visible = false
+margin_left = 316.0
+margin_top = 3.0
+margin_right = 1202.0
+margin_bottom = 43.0
+loadMaskFileDialogNodePath = NodePath("../../Dialogs/LoadStampMaskFileDialog")
+loadDecalFileDialogNodePath = NodePath("../../Dialogs/LoadStampDecalFileDialog")
+
+[node name="SelectSettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 43 )]
+visible = false
+margin_left = 316.0
+margin_top = 3.0
+margin_right = 1389.0
+margin_bottom = 43.0
+
+[node name="UvEditSettingsContainer" parent="Gui/HeadBar" instance=ExtResource( 38 )]
+visible = false
+margin_left = 316.0
+margin_top = 3.0
+margin_right = 520.0
+margin_bottom = 43.0
+
+[node name="Menu" type="Panel" parent="Gui"]
+anchor_right = 1.0
+margin_bottom = 26.0
+theme = ExtResource( 6 )
+custom_styles/panel = ExtResource( 36 )
+script = ExtResource( 39 )
+DefaultStyleBox = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gui/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -882.0
+mouse_filter = 2
+custom_constants/separation = 8
+
+[node name="FileMenuButton" parent="Gui/Menu/HBoxContainer" instance=ExtResource( 32 )]
+margin_right = 52.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 52, 0 )
+text = "FILE"
+__meta__ = {
+"_edit_vertical_guides_": [ 757.067, 525.965, 1060.94, 1306.02, 1737.02, 1835.6 ]
+}
+
+[node name="FilterMenuButton" parent="Gui/Menu/HBoxContainer" instance=ExtResource( 33 )]
+margin_left = 60.0
+margin_right = 128.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 64, 0 )
+
+[node name="MaskMenuButton" parent="Gui/Menu/HBoxContainer" instance=ExtResource( 71 )]
+margin_left = 136.0
+margin_right = 195.0
+margin_bottom = 27.0
+
+[node name="BakeMenuButton" parent="Gui/Menu/HBoxContainer" instance=ExtResource( 35 )]
+margin_left = 203.0
+margin_right = 263.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 60, 0 )
+
+[node name="HelpMenuButton" parent="Gui/Menu/HBoxContainer" instance=ExtResource( 37 )]
+margin_left = 271.0
+margin_right = 331.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 60, 0 )
+text = "HELP"
+
+[node name="Worksheet" type="Label" parent="Gui/Menu"]
+modulate = Color( 0.0784314, 0.8, 0.552941, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -880.0
+margin_top = 2.0
+margin_right = -471.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 61 )
+text = "Worksheet"
+align = 2
+
+[node name="Version" type="Label" parent="Gui/Menu"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -378.0
+margin_top = 2.0
+margin_right = -8.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
+custom_fonts/font = ExtResource( 61 )
+text = "Version"
+align = 2
+
+[node name="Dialogs" type="Control" parent="Gui"]
+visible = false
+mouse_filter = 2
+
+[node name="LoadMeshFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+window_title = "Load Mesh"
+filters = PoolStringArray( "*.obj" )
+showPreviewWindowDialog = false
+
+[node name="SaveMeshFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+window_title = "Save Mesh"
+mode = 4
+filters = PoolStringArray( "*.obj" )
+showPreviewWindowDialog = false
+
+[node name="SavePresetFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+window_title = "Save Preset"
+mode = 4
+filters = PoolStringArray( "*.pdat" )
+showPreviewWindowDialog = false
+
+[node name="LoadPresetFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+window_title = "Load Preset"
+filters = PoolStringArray( "*.pdat" )
+showPreviewWindowDialog = false
+
+[node name="LoadBucketMaskFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+
+[node name="LoadBucketDecalFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+window_title = "Load Decal"
+filters = PoolStringArray( "*.ubpd", "*.dat" )
+
+[node name="LoadStampMaskFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+
+[node name="LoadStampDecalFileDialog" parent="Gui/Dialogs" instance=ExtResource( 68 )]
+window_title = "Load Decal"
+filters = PoolStringArray( "*.ubpd", "*.dat" )
+
+[node name="Splash" type="WindowDialog" parent="Gui"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -252.0
+margin_top = -280.5
+margin_right = 252.0
+margin_bottom = 280.5
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "UB Painter"
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Gui/Splash"]
+margin_left = 2.0
+margin_top = -8.0
+margin_right = 502.0
+margin_bottom = 272.0
+mouse_filter = 2
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="Gui/Splash"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -324.0
+margin_top = -6.0
+margin_right = -4.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 61 )
+text = "Version"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Copyright" type="Label" parent="Gui/Splash"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -500.0
+margin_top = -6.0
+margin_right = -343.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 61 )
+text = "(c) 2021-2022 UnionBytes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gui/Splash"]
+margin_left = 20.0
+margin_top = 290.0
+margin_right = 480.0
+margin_bottom = 500.0
+mouse_filter = 1
+theme = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 30 )
+custom_fonts/normal_font = ExtResource( 61 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#FF0000][b] Early Access Version[/b] [/color]  [/center] 
+[fill]This Software “Union Bytes (UB) Painter” is early access, which contains bugs,  missing features or doesn't have any performance optimisations.
+
+It can be unstable and mess up your files. 
+
+[b]Use at your own risk.[/b]
+
+If you find a bug and like to report it, please send an E-Mail at support@unionbytes.de
+
+[/fill]"
+text = " Early Access Version    
+This Software “Union Bytes (UB) Painter” is early access, which contains bugs,  missing features or doesn't have any performance optimisations.
+
+It can be unstable and mess up your files. 
+
+Use at your own risk.
+
+If you find a bug and like to report it, please send an E-Mail at support@unionbytes.de
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="Gui/Splash"]
+margin_left = 20.0
+margin_top = 520.0
+margin_right = 480.0
+margin_bottom = 548.0
+rect_min_size = Vector2( 0, 28 )
+focus_mode = 0
+mouse_filter = 1
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MsgAcceptDialog" type="AcceptDialog" parent="Gui"]
+margin_left = 500.0
+margin_top = 368.0
+margin_right = 1100.0
+margin_bottom = 502.0
+theme = ExtResource( 6 )
+popup_exclusive = true
+window_title = "Error"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Gui/LibraryButton/OpenLibrary" to="Gui/Library" method="Show"]
+[connection signal="pressed" from="Gui/Library/TabContainer/Library/AddButton" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="AddLibraryPreset"]
+[connection signal="pressed" from="Gui/Library/TabContainer/Library/DeleteButton" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="DeleteLibraryPreset"]
+[connection signal="pressed" from="Gui/Library/TabContainer/Library/UpButton" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="PushLibraryPresetUp"]
+[connection signal="pressed" from="Gui/Library/TabContainer/Library/DownButton" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="PushLibraryPresetDown"]
+[connection signal="pressed" from="Gui/Library/TabContainer/Library/SaveButton" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="ShowSaveLibraryPresetsFileDialog"]
+[connection signal="pressed" from="Gui/Library/TabContainer/Library/LoadButton" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="ShowLoadLibraryPresetsFileDialog"]
+[connection signal="toggled" from="Gui/Library/KeepVisible" to="Gui/Library" method="KeepShownAfterMouseExited"]
+[connection signal="file_selected" from="Gui/Dialogs/SavePresetFileDialog" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="SaveLibraryPresets"]
+[connection signal="file_selected" from="Gui/Dialogs/LoadPresetFileDialog" to="Gui/HSplitContainer/WorkspaceViewportContainer/Viewport/Workspace" method="LoadLibraryPresets"]
+[connection signal="pressed" from="Gui/Splash/Close" to="Gui/Splash" method="Hide"]

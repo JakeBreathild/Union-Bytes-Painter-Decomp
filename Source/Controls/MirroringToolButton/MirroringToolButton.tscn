@@ -1,0 +1,265 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Resources/Icons/Fluent_Mirror_A_Regular_Hover.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Icons/Fluent_Mirror_A_Regular.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=3]
+[ext_resource path="res://Source/Controls/MirroringToolButton/MirroringToolButton.cs" type="Script" id=4]
+[ext_resource path="res://Resources/Icons/CircleMirrow.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Icons/CircleMirrow_Hover.png" type="Texture" id=6]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultSlider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/Icons/Fluent_Mirror_B_Regular_Hover.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Fonts/Small.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Resources/Icons/Fluent_Mirror_B_Regular.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Icons/Fluent_Warning_Filled.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 9.0
+content_margin_right = 9.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.211765, 0.211765, 0.211765, 0.564706 )
+border_color = Color( 0.16, 0.16, 0.16, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+draw_center = false
+border_width_top = 1
+border_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[node name="MirroringToolButton" type="TextureButton"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+rect_pivot_offset = Vector2( 0, 1 )
+hint_tooltip = "Toggle Mirroring"
+mouse_filter = 1
+theme = ExtResource( 3 )
+toggle_mode = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 4 )
+
+[node name="Information" type="RichTextLabel" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 2.0
+margin_right = 232.0
+margin_bottom = 46.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_colors/default_color = Color( 0.74902, 0.0431373, 0.0431373, 1 )
+custom_fonts/mono_font = ExtResource( 9 )
+custom_fonts/bold_italics_font = ExtResource( 9 )
+custom_fonts/italics_font = ExtResource( 9 )
+custom_fonts/bold_font = ExtResource( 9 )
+custom_fonts/normal_font = ExtResource( 9 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+bbcode_enabled = true
+tab_size = 2
+text = "“Circle Mirroring” is not available with this Tool!"
+scroll_active = false
+
+[node name="TextureButton" type="TextureRect" parent="Information"]
+modulate = Color( 0.74902, 0.0431373, 0.0431373, 1 )
+margin_left = 168.0
+margin_top = 2.0
+margin_right = 208.0
+margin_bottom = 42.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_top = 62.0
+margin_right = 276.0
+margin_bottom = 292.0
+theme = ExtResource( 3 )
+
+[node name="Vertical" type="TextureButton" parent="Panel"]
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 36.0
+margin_bottom = 40.0
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="VerticalSlider" parent="Panel" instance=ExtResource( 7 )]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = -54.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 68.4678, 102.949 )
+focus_mode = 0
+min_value = 0.0
+max_value = 0.0
+value = 0.0
+text = "Vertical"
+valueFormat = "0"
+
+[node name="HSeparator" type="HSeparator" parent="Panel"]
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 44.0
+margin_right = -4.0
+margin_bottom = 48.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_styles/separator = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Horizontal" type="TextureButton" parent="Panel"]
+margin_left = 4.0
+margin_top = 50.0
+margin_right = 36.0
+margin_bottom = 82.0
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="HorizontalSlider" parent="Panel" instance=ExtResource( 7 )]
+margin_left = 40.0
+margin_top = 62.0
+margin_right = -54.0
+margin_bottom = 86.0
+focus_mode = 0
+min_value = 0.0
+max_value = 0.0
+value = 0.0
+text = "Horizontal"
+valueFormat = "0"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel"]
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 86.0
+margin_right = -4.0
+margin_bottom = 90.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_styles/separator = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Circle" type="TextureButton" parent="Panel"]
+margin_left = 4.0
+margin_top = 92.0
+margin_right = 36.0
+margin_bottom = 182.0
+focus_mode = 0
+mouse_filter = 1
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="CircleHorizontalSlider" parent="Panel" instance=ExtResource( 7 )]
+margin_left = 40.0
+margin_top = 104.0
+margin_right = -54.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 68.4678, 102.949 )
+focus_mode = 0
+min_value = 0.0
+max_value = 0.0
+value = 0.0
+text = "X"
+valueFormat = "0"
+
+[node name="CircleVerticalSlider" parent="Panel" instance=ExtResource( 7 )]
+margin_left = 40.0
+margin_top = 134.0
+margin_right = -54.0
+margin_bottom = 158.0
+rect_pivot_offset = Vector2( 68.4678, 102.949 )
+focus_mode = 0
+min_value = 0.0
+max_value = 0.0
+value = 0.0
+text = "Y"
+valueFormat = "0"
+
+[node name="CircleCountSlider" parent="Panel" instance=ExtResource( 7 )]
+margin_left = 40.0
+margin_top = 164.0
+margin_right = -54.0
+margin_bottom = 188.0
+rect_pivot_offset = Vector2( 68.4678, 102.949 )
+focus_mode = 0
+min_value = 2.0
+max_value = 64.0
+value = 8.0
+text = "Count"
+valueFormat = "0"
+
+[node name="CircleOffsetSlider" parent="Panel" instance=ExtResource( 7 )]
+visible = false
+margin_left = 50.0
+margin_top = 215.0
+margin_right = -38.0
+margin_bottom = 239.0
+rect_pivot_offset = Vector2( 68.4678, 102.949 )
+focus_mode = 0
+min_value = 0.0
+max_value = 360.0
+step = 0.5
+value = 0.0
+valueFormat = "0"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -41.0
+margin_right = -4.0
+margin_bottom = -37.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+custom_styles/separator = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -33.0
+margin_right = -8.0
+margin_bottom = -6.0
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 3 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}

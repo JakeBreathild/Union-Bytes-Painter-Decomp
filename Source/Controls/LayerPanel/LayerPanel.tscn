@@ -1,0 +1,172 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Source/Controls/LayerPanel/LayerPanel.cs" type="Script" id=1]
+[ext_resource path="res://Source/Controls/LayerPanel/LayerEntry/LayerEntry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Styles/HoverPanelHover.stylebox" type="StyleBox" id=3]
+[ext_resource path="res://Resources/Themes/Theme.theme" type="Theme" id=4]
+[ext_resource path="res://Resources/Styles/LayerEntry.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://Source/Controls/DefaultTemplates/DefaultScrollContainer.cs" type="Script" id=6]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Up_Regular_Hover.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Icons/Fluent_Add_Square_Regular_Hover.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Up_Regular.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Icons/Fluent_Add_Square_Regular.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Down_Regular.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Icons/Fluent_Caret_Down_Regular_Hover.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Icons/Fluent_Copy_Regular.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Icons/Fluent_Copy_Regular_Hover.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Icons/Fluent_Combine_Layer_Regular.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Icons/Fluent_Combine_Layers_Regular.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Icons/Fluent_Full_Eye_Tracking_On_Regular.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Icons/Fluent_Full_Eye_Tracking_On_Regular_Hover.png" type="Texture" id=18]
+[ext_resource path="res://Resources/Icons/Fluent_Combine_Layer_Regular_Hover.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Icons/Fluent_Combine_Layers_Regular_Hover.png" type="Texture" id=20]
+
+[node name="LayerPanel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+mouse_filter = 1
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+layerEntryPackedScene = ExtResource( 2 )
+entryStyleBox = ExtResource( 5 )
+selectedStyleBox = ExtResource( 3 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -32.0
+mouse_filter = 1
+scroll_horizontal_enabled = false
+script = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1904.0
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="AddTextureButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -28.0
+margin_right = 28.0
+margin_bottom = -4.0
+hint_tooltip = "Add Layer"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DuplicateTextureButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = -28.0
+margin_right = 54.0
+margin_bottom = -4.0
+hint_tooltip = "Duplicate Layer"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpTextureButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = -28.0
+margin_right = 94.0
+margin_bottom = -4.0
+hint_tooltip = "Move Layer Up"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DownTextureButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 96.0
+margin_top = -28.0
+margin_right = 120.0
+margin_bottom = -4.0
+hint_tooltip = "Move Layer Down"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeparateTextureButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 136.0
+margin_top = -28.0
+margin_right = 160.0
+margin_bottom = -4.0
+hint_tooltip = "Separate Single Layer"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+expand = true
+
+[node name="CombineSingleLayerTextureButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -54.0
+margin_top = -28.0
+margin_right = -30.0
+margin_bottom = -4.0
+hint_tooltip = "Combines a Visible Layer Down"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+expand = true
+
+[node name="CombineLayersTextureButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -28.0
+margin_right = -4.0
+margin_bottom = -4.0
+hint_tooltip = "Combines All Visible Layers Together"
+focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+expand = true

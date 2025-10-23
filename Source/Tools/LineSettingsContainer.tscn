@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Source/Tools/LineSettingsContainer.cs" type="Script" id=1]
+[ext_resource path="res://Source/Controls/ToolSlider/ToolSlider.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+draw_center = false
+border_width_left = 1
+border_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+
+[node name="LineSettingsContainer" type="HBoxContainer"]
+margin_right = 660.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blending" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_right = 160.0
+margin_bottom = 40.0
+text = "Blending"
+valueMultiplier = 0.01
+suffix = "%"
+value = 100.0
+
+[node name="Size" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_left = 164.0
+margin_right = 324.0
+margin_bottom = 40.0
+text = "Size"
+minValue = 1.0
+maxValue = 64.0
+rounded = true
+suffix = "px"
+value = 1.0
+
+[node name="Hardness" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_left = 328.0
+margin_right = 488.0
+margin_bottom = 40.0
+text = "Hardness"
+valueMultiplier = 0.01
+suffix = "%"
+value = 100.0
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 492.0
+margin_right = 496.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/separator = SubResource( 1 )
+
+[node name="Spacing" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_left = 500.0
+margin_right = 660.0
+margin_bottom = 40.0
+text = "Spacing"
+valueMultiplier = 0.001
+minValue = 1.0
+maxValue = 800.0
+value = 20.0

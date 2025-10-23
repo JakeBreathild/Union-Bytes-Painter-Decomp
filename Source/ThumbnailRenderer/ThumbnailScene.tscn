@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Materials/Thumbnail.material" type="Material" id=1]
+
+[sub_resource type="SphereMesh" id=2]
+
+[node name="ThumbnailScene" type="MeshInstance"]
+material_override = ExtResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1 )
+fov = 60.0
+far = 16.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.818896, 0.0573898, -0.571066, 0.321761, 0.778021, 0.539587, 0.475268, -0.625612, 0.618652, -3.98761, 0, 2.46041 )
+light_energy = 2.0
+light_specular = 1.0
